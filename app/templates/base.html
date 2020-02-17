@@ -20,6 +20,15 @@
     <header>
         {% include "header.html" %}
     </header>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="flashes bg-success p-3 rounded-lg list-unstyled ">
+        {% for message in messages %}
+        <li style="font-size:120%" class="text-white">{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
     <main>
         <div class="container">
             {% block main %}{% endblock %}
